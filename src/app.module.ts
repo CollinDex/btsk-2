@@ -31,6 +31,7 @@ import { OrgModule } from '@organisation/org.module';
         return {
           type: "postgres",
           host: process.env.PG_HOST,
+          url: process.env.PG_URL,
           username: process.env.PG_USER,
           password: process.env.PG_PASSWORD,
           port: +process.env.PG_PORT,
