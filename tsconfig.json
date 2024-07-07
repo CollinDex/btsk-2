@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", // Compatible with Node.js and Jest
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "types": [
+      "node",
+      "jest"
+    ],
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@auth/*": [
+        "src/auth/*"
+      ],
+      "@entity/*": [
+        "src/typeorm/entities/*"
+      ],
+      "@middleware/*": [
+        "src/middlewares/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@organisation/*": [
+        "src/organisations/*"
+      ],
+      "@user/*": [
+        "src/users/*"
+      ],
+      "@test/*": [
+        "src/test/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test"
+  ]
+}
