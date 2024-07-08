@@ -24,6 +24,10 @@ export class User {
 	phone?: string;
 
 	@ManyToMany(() => Organization, organizations => organizations.users)
-	@JoinTable()
+	@JoinTable({
+		name: 'user_organizations_organization',
+		joinColumn: { name: 'userId', referencedColumnName: 'userId' },
+		inverseJoinColumn: { name: 'orgId', referencedColumnName: 'orgId' },
+	})
 	organizations: Organization[];
 }
