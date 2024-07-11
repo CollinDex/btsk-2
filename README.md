@@ -39,28 +39,29 @@ This API provides user authentication and organization management functionality.
 
 ## Setup and Installation
 
-1. Clone the repository:
-   \`\`\`sh
-   git clone https://github.com/CollinDex/btsk-2
-   \`\`\`
+#### 1. Clone the repository:
 
-2. Install dependencies:
-   \`\`\`sh
-   npm install
-   \`\`\`
+```bash
+git clone https://github.com/CollinDex/btsk-2
+```
 
-3. Create a \`.env\` file and add the necessary environment variables (see below).
+#### 2. Install dependencies:
+```bash
+npm install
+```
 
-4. Run the application:
-   \`\`\`sh
-   nest start
-   \`\`\`
+#### 3. Create a \`.env\` file and add the necessary environment variables (see below).
+
+#### 4. Run the application:
+```bash
+nest start
+```
 
 ## Environment Variables
 
 Create a \`.env\` file in the root directory with the following variables:
 
-\`\`\`env
+```bash
 PG_HOST=your_host
 PG_PORT=5432
 PG_USER=your_user
@@ -70,13 +71,13 @@ PG_SSLMODE=require
 JWT_SECRET=your_jwt_secret
 JWT_EXPIRATION=1h
 NODE_ENV=development
-\`\`\`
+```
 
 ## Models
 
 ### User Model
 
-\`\`\`
+```bash
 {
   "userId": "string",
   "firstName": "string",
@@ -85,17 +86,17 @@ NODE_ENV=development
   "password": "string",
   "phone": "string"
 }
-\`\`\`
+```
 
 ### Organisation Model
 
-\`\`\`
+```bash
 {
   "orgId": "string",
   "name": "string",
   "description": "string"
 }
-\`\`\`
+```
 
 ## Endpoints
 
@@ -107,7 +108,7 @@ NODE_ENV=development
 
 **Request Body:**
 
-\`\`\`
+```bash
 {
   "firstName": "string",
   "lastName": "string",
@@ -115,17 +116,19 @@ NODE_ENV=development
   "password": "string",
   "phone": "string"
 }
-\`\`\`
+```
 
 **Successful Response:**
 
-\`\`\`
+```bash
 {
   "status": "success",
   "message": "Registration successful",
-  "data": {
+  "data": 
+  {
     "accessToken": "eyJh...",
-    "user": {
+    "user": 
+    {
       "userId": "string",
       "firstName": "string",
       "lastName": "string",
@@ -134,17 +137,17 @@ NODE_ENV=development
     }
   }
 }
-\`\`\`
+```
 
 **Unsuccessful Response:**
 
-\`\`\`
+```bash
 {
   "status": "Bad request",
   "message": "Registration unsuccessful",
   "statusCode": 400
 }
-\`\`\`
+```
 
 #### POST /auth/login
 
@@ -152,22 +155,24 @@ NODE_ENV=development
 
 **Request Body:**
 
-\`\`\`
+```bash
 {
   "email": "string",
   "password": "string"
 }
-\`\`\`
+```
 
 **Successful Response:**
 
-\`\`\`
+```bash
 {
   "status": "success",
   "message": "Login successful",
-  "data": {
+  "data": 
+  {
     "accessToken": "eyJh...",
-    "user": {
+    "user": 
+    {
       "userId": "string",
       "firstName": "string",
       "lastName": "string",
@@ -176,17 +181,17 @@ NODE_ENV=development
     }
   }
 }
-\`\`\`
+```
 
 **Unsuccessful Response:**
 
-\`\`\`
+```shell
 {
   "status": "Bad request",
   "message": "Authentication failed",
   "statusCode": 401
 }
-\`\`\`
+```
 
 ### User
 
@@ -196,11 +201,12 @@ NODE_ENV=development
 
 **Successful Response:**
 
-\`\`\`
+```bash
 {
   "status": "success",
   "message": "<message>",
-  "data": {
+  "data": 
+  {
     "userId": "string",
     "firstName": "string",
     "lastName": "string",
@@ -208,7 +214,7 @@ NODE_ENV=development
     "phone": "string"
   }
 }
-\`\`\`
+```
 
 ### Organisation
 
@@ -218,11 +224,12 @@ NODE_ENV=development
 
 **Successful Response:**
 
-\`\`\`
+```bash
 {
   "status": "success",
   "message": "<message>",
-  "data": {
+  "data": 
+  {
     "organisations": [
       {
         "orgId": "string",
@@ -232,7 +239,7 @@ NODE_ENV=development
     ]
   }
 }
-\`\`\`
+```
 
 #### GET /api/organisations/:orgId
 
@@ -240,17 +247,18 @@ NODE_ENV=development
 
 **Successful Response:**
 
-\`\`\`
+```bash
 {
   "status": "success",
   "message": "<message>",
-  "data": {
+  "data": 
+  {
     "orgId": "string",
     "name": "string",
     "description": "string"
   }
 }
-\`\`\`
+```
 
 #### POST /api/organisations
 
@@ -258,36 +266,37 @@ NODE_ENV=development
 
 **Request Body:**
 
-\`\`\`
+```bash
 {
   "name": "string",
   "description": "string"
 }
-\`\`\`
+```
 
 **Successful Response:**
 
-\`\`\`
+```bash
 {
   "status": "success",
   "message": "Organisation created successfully",
-  "data": {
+  "data": 
+  {
     "orgId": "string",
     "name": "string",
     "description": "string"
   }
 }
-\`\`\`
+```
 
 **Unsuccessful Response:**
 
-\`\`\`
+```bash
 {
   "status": "Bad Request",
   "message": "Client error",
   "statusCode": 400
 }
-\`\`\`
+```
 
 #### POST /api/organisations/:orgId/users
 
@@ -295,26 +304,26 @@ NODE_ENV=development
 
 **Request Body:**
 
-\`\`\`
+```bash
 {
   "userId": "string"
 }
-\`\`\`
+```
 
 **Successful Response:**
 
-\`\`\`
+```bash
 {
   "status": "success",
   "message": "User added to organisation successfully"
 }
-\`\`\`
+```
 
 ## Validation Errors
 
 **Example Validation Error Response:**
 
-\`\`\`
+```bash
 {
   "errors": [
     {
@@ -323,7 +332,7 @@ NODE_ENV=development
     }
   ]
 }
-\`\`\`
+```
 
 ## Unit Testing
 
